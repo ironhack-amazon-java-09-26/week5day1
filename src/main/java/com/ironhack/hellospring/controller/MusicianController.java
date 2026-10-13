@@ -2,10 +2,7 @@ package com.ironhack.hellospring.controller;
 
 import com.ironhack.hellospring.model.Musician;
 import com.ironhack.hellospring.service.MusicianService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,16 @@ public class MusicianController {
     @GetMapping("/{id}")
     public Musician getById(@PathVariable int id){
         return musicianService.getById(id);
+    }
+
+    @GetMapping("nationality/{nationality}")
+    List<Musician> getByNationality(@PathVariable String nationality){
+        return musicianService.getByNationality(nationality);
+    }
+
+    @GetMapping("/filters")
+    public List<Musician> getByFiltered(@RequestParam String name, @RequestParam(required = false//, defaultValue = "unknown"
+    ) String nationality){
+        return musicianService.getMusicianFiltered(name, nationality);
     }
 }

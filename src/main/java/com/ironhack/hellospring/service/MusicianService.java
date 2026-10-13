@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class MusicianService {
@@ -56,6 +57,22 @@ public class MusicianService {
             }
         }
         return foundMusicians;
+    }
+
+    public List<Musician> getMusicianFiltered(String name, String nationality){
+        if (Objects.nonNull(nationality)){
+            List<Musician> foundMusicians = new ArrayList<>();
+            for (Musician musician : musicians) {
+                if (musician.getName().equalsIgnoreCase(name) && musician.getNationality().equalsIgnoreCase(nationality)){
+                    foundMusicians.add(musician);
+                }
+            }
+            return foundMusicians;
+        } else {
+            return getByName(name);
+        }
+
+        
     }
 
 }
