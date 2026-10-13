@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ironhack</groupId>
-    <artifactId>HelloSpring</artifactId>
+    <artifactId>HelloCrud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>HelloSpring</name>
-    <description>HelloSpring</description>
+    <name>HelloCrud</name>
+    <description>Hello Crud project</description>
     <url/>
     <licenses>
         <license/>
